@@ -1,173 +1,242 @@
+```html
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+
+  <meta
+    name="description"
+    content="Portfolio website created by Necsoiu David Carlos featuring responsive web projects, accessible forms and JavaScript applications."
+  >
+
+  <meta name="author" content="Necsoiu David Carlos">
+  <meta name="theme-color" content="#1b4d89">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Portfolio - Junior Developer Showcase</title>
 
   <link rel="stylesheet" href="styles.css">
+
   <script src="portfolio.js" defer></script>
 </head>
 
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">
+    Skip to main content
+  </a>
 
-<header>
-  <p class="site-title">Junior Developer Project Showcase</p>
-  <p class="site-subtitle">
-    Necsoiu David Carlos - first year computer science student
-  </p>
-</header>
+  <header>
+    <p class="site-title">Junior Developer Project Showcase</p>
 
-<nav aria-label="Main navigation">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
-  </ul>
-</nav>
-
-<main id="main-content">
-
-  <section class="hero-section">
-    <h1>Project Portfolio</h1>
-
-    <p>
-      This page allows visitors to submit and preview software projects
-      using an accessible responsive form.
+    <p class="site-subtitle">
+      Necsoiu David Carlos - first year computer science student
     </p>
-  </section>
+  </header>
 
-  <section class="page-box">
+  <nav aria-label="Main navigation">
 
-    <h2>Add a project</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="data.html">Projects Data</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="overview.html">Overview</a></li>
+      <li><a href="chatbot.html">Chatbot</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="specificity.html">Specificity</a></li>
+      <li>
+        <a href="portfolio.html" aria-current="page">
+          Portfolio
+        </a>
+      </li>
+    </ul>
 
-    <form id="projectForm" novalidate>
+  </nav>
 
-      <fieldset>
+  <main id="main-content">
 
-        <legend>Project information</legend>
+    <section class="hero-section">
 
-        <label for="projectName">Project name</label>
-        <input
-          type="text"
-          id="projectName"
-          name="projectName"
-          aria-describedby="projectNameError"
-          required
-        >
+      <h1>Project Portfolio</h1>
 
-        <p class="error-message" id="projectNameError"></p>
+      <p>
+        This page allows users to submit projects using
+        an accessible form with validation.
+      </p>
 
-        <label for="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          aria-describedby="descriptionError"
-          required
-        ></textarea>
-
-        <p class="error-message" id="descriptionError"></p>
-
-        <label for="projectUrl">Project URL</label>
-        <input
-          type="url"
-          id="projectUrl"
-          name="projectUrl"
-          placeholder="https://example.com"
-          aria-describedby="urlError"
-          required
-        >
-
-        <p class="error-message" id="urlError"></p>
-
-        <label for="technology">Technology</label>
-        <select
-          id="technology"
-          name="technology"
-          aria-describedby="technologyError"
-          required
-        >
-          <option value="">Choose one</option>
-          <option>HTML/CSS</option>
-          <option>JavaScript</option>
-          <option>C</option>
-          <option>C++</option>
-          <option>Python</option>
-        </select>
-
-        <p class="error-message" id="technologyError"></p>
-
-        <label for="completionDate">Completion date</label>
-        <input
-          type="date"
-          id="completionDate"
-          name="completionDate"
-          aria-describedby="dateError"
-          required
-        >
-
-        <p class="error-message" id="dateError"></p>
-
-        <label for="imageUrl">Image URL</label>
-        <input
-          type="url"
-          id="imageUrl"
-          name="imageUrl"
-          aria-describedby="imageError"
-          placeholder="https://..."
-        >
-
-        <p class="error-message" id="imageError"></p>
-
-      </fieldset>
-
-      <div class="button-row">
-        <button type="submit">Add project</button>
-        <button type="reset">Reset form</button>
+      <div class="stats-box">
+        <p>
+          Projects added:
+          <span id="projectCounter">0</span>
+        </p>
       </div>
 
-    </form>
-  </section>
+    </section>
 
-  <section class="page-box">
+    <section class="page-box">
 
-    <h2>Submitted projects</h2>
+      <h2>Add a new project</h2>
 
-    <div class="table-wrapper">
+      <form id="projectForm" novalidate>
 
-      <table id="projectsTable">
+        <fieldset>
 
-        <caption>
-          Portfolio projects added using the form
-        </caption>
+          <legend>Project information</legend>
 
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">URL</th>
-            <th scope="col">Technology</th>
-            <th scope="col">Image</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
+          <label for="projectName">
+            Project name
+          </label>
 
-        <tbody>
-        </tbody>
+          <input
+            type="text"
+            id="projectName"
+            name="projectName"
+            aria-describedby="projectNameError"
+            required
+          >
 
-      </table>
+          <p class="error-message" id="projectNameError"></p>
 
-    </div>
+          <label for="description">
+            Description
+          </label>
 
-  </section>
+          <textarea
+            id="description"
+            name="description"
+            aria-describedby="descriptionError"
+            required
+          ></textarea>
 
-</main>
+          <p class="error-message" id="descriptionError"></p>
 
-<footer>
-  <p>&copy; 2026 Necsoiu David Carlos.</p>
-</footer>
+          <label for="projectUrl">
+            Project URL
+          </label>
+
+          <input
+            type="url"
+            id="projectUrl"
+            name="projectUrl"
+            placeholder="https://example.com"
+            aria-describedby="urlError"
+            required
+          >
+
+          <p class="error-message" id="urlError"></p>
+
+          <label for="technology">
+            Main technology
+          </label>
+
+          <select
+            id="technology"
+            name="technology"
+            aria-describedby="technologyError"
+            required
+          >
+            <option value="">Choose one</option>
+            <option>HTML/CSS</option>
+            <option>JavaScript</option>
+            <option>C</option>
+            <option>C++</option>
+            <option>Python</option>
+          </select>
+
+          <p class="error-message" id="technologyError"></p>
+
+          <label for="completionDate">
+            Completion date
+          </label>
+
+          <input
+            type="date"
+            id="completionDate"
+            name="completionDate"
+            aria-describedby="dateError"
+            required
+          >
+
+          <p class="error-message" id="dateError"></p>
+
+          <label for="imageUrl">
+            Image URL
+          </label>
+
+          <input
+            type="url"
+            id="imageUrl"
+            name="imageUrl"
+            placeholder="https://example.com/image.webp"
+            aria-describedby="imageError"
+          >
+
+          <p class="error-message" id="imageError"></p>
+
+        </fieldset>
+
+        <div class="button-row">
+
+          <button type="submit">
+            Add project
+          </button>
+
+          <button type="reset">
+            Reset form
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+    <section class="page-box">
+
+      <h2>Submitted projects</h2>
+
+      <div class="table-wrapper">
+
+        <table id="projectsTable">
+
+          <caption>
+            Portfolio projects submitted using the form
+          </caption>
+
+          <thead>
+
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">URL</th>
+              <th scope="col">Technology</th>
+              <th scope="col">Image</th>
+              <th scope="col">Date</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 Necsoiu David Carlos.
+      Project for Web Design.
+    </p>
+  </footer>
 
 </body>
 </html>
-
+```
