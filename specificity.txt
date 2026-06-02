@@ -1,0 +1,71 @@
+CSS Specificity Game - Answers
+Necsoiu David Carlos
+
+1. Paragraph A
+Paragraph A matches only the element selector p.
+It receives:
+- color: gray from p
+- font-size: 1rem from p
+- font-family: Georgia, serif from p
+- line-height: 1.4 from p
+- padding: 4px 0 from p
+
+2. Paragraph B
+Paragraph B matches p and .info.
+The class selector .info is more specific than the element selector p.
+It receives:
+- color: steelblue from .info
+- font-size: 1.25rem from .info
+- background-color: #e8f4fd from .info
+- padding: 8px 14px from .info
+- border-left: 5px solid steelblue from .info
+- font-family: Arial, sans-serif from .info
+- line-height: 1.4 from p because .info does not change it
+
+3. Paragraph C
+Paragraph C matches p and #warning.
+The id selector #warning is more specific than p.
+It receives:
+- color: darkred from #warning
+- font-size: 0.8rem from #warning
+- font-style: italic from #warning
+- text-transform: uppercase from #warning
+- letter-spacing: 0.15em from #warning
+- border: 2px dashed darkred from #warning
+- padding: 10px from #warning
+- background-color: #fff0f0 from #warning
+- font-family: 'Courier New', monospace from #warning
+- line-height: 1.4 from p because #warning does not change it
+
+4. Paragraph D
+Paragraph D matches all four selectors: p, .info, #warning, and #warning.info.
+The selector #warning.info is the strongest one because it contains one id and one class.
+For color, the browser uses darkorange from #warning.info.
+This wins over gray from p, steelblue from .info, and darkred from #warning.
+
+For font-family, #warning.info does not define a font-family.
+Because of that, the browser uses font-family: 'Courier New', monospace from #warning.
+This wins over Arial from .info and Georgia from p because an id selector is more specific than a class selector or an element selector.
+
+Paragraph D also keeps some properties from #warning if #warning.info does not replace them, for example:
+- text-transform: uppercase from #warning
+- padding: 10px from #warning
+- font-family: 'Courier New', monospace from #warning
+
+5. External CSS and internal CSS for h1
+I created an external CSS file called style.css.
+In style.css I added:
+h1 {
+    color: navy;
+    font-style: italic;
+    padding: 10px;
+}
+
+Then I added an internal CSS rule inside specificity.html:
+h1 {
+    color: darkred;
+}
+
+Both rules target the same h1 element and have the same specificity because both use the element selector h1.
+The internal rule is written after the external stylesheet link, so the color becomes darkred.
+The font-style and padding still come from style.css because the internal rule only changes the color.

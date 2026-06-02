@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Junior Developer Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <p class="site-title">Junior Developer Project Showcase</p>
+    <p class="site-subtitle">Necsoiu David Carlos - first year computer science student</p>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="data.html">Projects Data</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="overview.html">Overview</a></li>
+      <li><a href="chatbot.html">Chatbot</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="specificity.html">Specificity</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <h1>Contact and Feedback</h1>
+
+    <section>
+      <h2>Contact details</h2>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:david.necsoiu06@e-uvt.ro">david.necsoiu06@e-uvt.ro</a></li>
+        <li>Phone: <a href="tel:+40755635550">+40755635550</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Feedback form</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Your details</legend>
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Message details</legend>
+
+          <label for="topic">Subject or topic</label>
+          <select id="topic" name="topic" required>
+            <option value="">Choose a topic</option>
+            <option value="feedback">Website feedback</option>
+            <option value="project">Project question</option>
+            <option value="collaboration">Collaboration</option>
+          </select>
+
+          <label for="preferred-contact">Preferred contact method</label>
+          <select id="preferred-contact" name="preferred-contact">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </fieldset>
+
+        <button type="submit">Send feedback</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Necsoiu David Carlos. Project for Web Design.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Junior Developer Showcase</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="portfolio.js" defer></script>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <p class="site-title">Junior Developer Project Showcase</p>
+  <p class="site-subtitle">
+    Necsoiu David Carlos - first year computer science student
+  </p>
+</header>
+
+<nav aria-label="Main navigation">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+  </ul>
+</nav>
+
+<main id="main-content">
+
+  <section class="hero-section">
+    <h1>Project Portfolio</h1>
+
+    <p>
+      This page allows visitors to submit and preview software projects
+      using an accessible responsive form.
+    </p>
+  </section>
+
+  <section class="page-box">
+
+    <h2>Add a project</h2>
+
+    <form id="projectForm" novalidate>
+
+      <fieldset>
+
+        <legend>Project information</legend>
+
+        <label for="projectName">Project name</label>
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          aria-describedby="projectNameError"
+          required
+        >
+
+        <p class="error-message" id="projectNameError"></p>
+
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          aria-describedby="descriptionError"
+          required
+        ></textarea>
+
+        <p class="error-message" id="descriptionError"></p>
+
+        <label for="projectUrl">Project URL</label>
+        <input
+          type="url"
+          id="projectUrl"
+          name="projectUrl"
+          placeholder="https://example.com"
+          aria-describedby="urlError"
+          required
+        >
+
+        <p class="error-message" id="urlError"></p>
+
+        <label for="technology">Technology</label>
+        <select
+          id="technology"
+          name="technology"
+          aria-describedby="technologyError"
+          required
+        >
+          <option value="">Choose one</option>
+          <option>HTML/CSS</option>
+          <option>JavaScript</option>
+          <option>C</option>
+          <option>C++</option>
+          <option>Python</option>
+        </select>
+
+        <p class="error-message" id="technologyError"></p>
+
+        <label for="completionDate">Completion date</label>
+        <input
+          type="date"
+          id="completionDate"
+          name="completionDate"
+          aria-describedby="dateError"
+          required
+        >
+
+        <p class="error-message" id="dateError"></p>
+
+        <label for="imageUrl">Image URL</label>
+        <input
+          type="url"
+          id="imageUrl"
+          name="imageUrl"
+          aria-describedby="imageError"
+          placeholder="https://..."
+        >
+
+        <p class="error-message" id="imageError"></p>
+
+      </fieldset>
+
+      <div class="button-row">
+        <button type="submit">Add project</button>
+        <button type="reset">Reset form</button>
+      </div>
+
+    </form>
+  </section>
+
+  <section class="page-box">
+
+    <h2>Submitted projects</h2>
+
+    <div class="table-wrapper">
+
+      <table id="projectsTable">
+
+        <caption>
+          Portfolio projects added using the form
+        </caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">URL</th>
+            <th scope="col">Technology</th>
+            <th scope="col">Image</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Necsoiu David Carlos.</p>
+</footer>
+
+</body>
+</html>
+

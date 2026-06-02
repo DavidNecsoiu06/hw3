@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot - Junior Developer Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <p class="site-title">Junior Developer Project Showcase</p>
+    <p class="site-subtitle">Necsoiu David Carlos - first year computer science student</p>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="data.html">Projects Data</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="overview.html">Overview</a></li>
+      <li><a href="chatbot.html">Chatbot</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="specificity.html">Specificity</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <h1>Project Chatbot</h1>
+
+    <section>
+      <h2>Ask a question</h2>
+      <p>This is a simple chatbot made with vanilla JavaScript. Try questions like: <strong>projects</strong>, <strong>skills</strong>, <strong>contact</strong> or <strong>university</strong>.</p>
+
+      <div class="chat-box">
+        <div id="chat-messages" class="chat-messages" aria-live="polite">
+          <p class="bot-message">Hello! Ask me something about this portfolio project.</p>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+          <label for="chat-input">Your question</label>
+          <div class="chat-controls">
+            <input type="text" id="chat-input" name="chat-input" required>
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Necsoiu David Carlos. Project for Web Design.</p>
+  </footer>
+</body>
+</html>

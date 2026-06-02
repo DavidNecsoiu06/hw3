@@ -1,0 +1,40 @@
+.card-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  background-color: transparent;
+  border: none;
+}
+
+.business-card {
+  width: 320px;
+  background-color: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(23, 55, 94, 0.15);
+}
+
+.business-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.business-card h2 {
+  margin-bottom: 10px;
+}
+
+.business-card p {
+  margin-bottom: 12px;
+}
+
+.business-card a {
+  color: #1b4d89;
+  font-weight: bold;
+}
