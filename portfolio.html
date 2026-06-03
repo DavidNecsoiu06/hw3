@@ -1,385 +1,235 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="description"
-    content="Junior developer portfolio website featuring accessible forms, responsive layouts, JavaScript validation and university web development projects."
-  >
-
-  <meta name="author" content="Necsoiu David Carlos">
-
-  <meta name="theme-color" content="#1b4d89">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="
-      default-src 'self';
-      img-src 'self' https: data:;
-      style-src 'self' 'unsafe-inline';
-      script-src 'self';
-    "
-  >
-
   <title>Portfolio - Junior Developer Showcase</title>
-
+  <meta name="description" content="Portfolio of Necsoiu David Carlos, first year computer science student. Add and view projects.">
   <link rel="stylesheet" href="styles.css">
-
-  <script src="portfolio.js" defer></script>
+  <link rel="stylesheet" href="portfolio.css">
 </head>
-
 <body>
-
-  <a href="#main-content" class="skip-link">
-    Skip to main content
-  </a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header>
-    <p class="site-title">
-      Junior Developer Project Showcase
-    </p>
-
-    <p class="site-subtitle">
-      Necsoiu David Carlos - first year computer science student
-    </p>
+    <p class="site-title">Junior Developer Project Showcase</p>
+    <p class="site-subtitle">Necsoiu David Carlos - first year computer science student</p>
   </header>
 
   <nav aria-label="Main navigation">
-
     <ul>
       <li><a href="index.html">Home</a></li>
-
       <li><a href="about.html">About</a></li>
-
       <li><a href="data.html">Projects Data</a></li>
-
       <li><a href="contact.html">Contact</a></li>
-
       <li><a href="overview.html">Overview</a></li>
-
       <li><a href="chatbot.html">Chatbot</a></li>
-
       <li><a href="card.html">Card</a></li>
-
       <li><a href="specificity.html">Specificity</a></li>
-
-      <li>
-        <a
-          href="portfolio.html"
-          aria-current="page"
-        >
-          Portfolio
-        </a>
-      </li>
+      <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
     </ul>
-
   </nav>
 
   <main id="main-content">
+    <h1>Portfolio</h1>
 
-    <section class="hero-section">
-
-      <h1>Project Portfolio</h1>
-
-      <p>
-        This page allows users to submit software
-        projects using an accessible and responsive form.
-      </p>
-
-      <div class="stats-box">
-
-        <p>
-          Projects added:
-          <span id="projectCounter">0</span>
-        </p>
-
+    <!-- Hero -->
+    <div class="portfolio-hero" role="region" aria-label="Developer profile summary">
+      <div class="portfolio-hero-inner">
+        <img
+          src="assets/profile.jpeg"
+          alt="Photo of Necsoiu David Carlos"
+          class="hero-avatar"
+          width="100"
+          height="100"
+          loading="eager"
+          decoding="async"
+        >
+        <div class="hero-text">
+          <p class="hero-name">Necsoiu David Carlos</p>
+          <p>First year Computer Science student &mdash; building things to learn.</p>
+          <div class="hero-chips" aria-label="Skills">
+            <span class="hero-chip">HTML</span>
+            <span class="hero-chip">CSS</span>
+            <span class="hero-chip">JavaScript</span>
+            <span class="hero-chip">C / C++</span>
+            <span class="hero-chip">GitHub</span>
+            <span class="hero-chip">Python</span>
+          </div>
+        </div>
       </div>
+    </div>
 
-    </section>
+    <!-- Stats -->
+    <div class="stats-bar" aria-label="Portfolio statistics">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total" aria-live="polite">0</div>
+        <div class="stat-label">Projects added</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-done" aria-live="polite">0</div>
+        <div class="stat-label">Completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-prog" aria-live="polite">0</div>
+        <div class="stat-label">In progress</div>
+      </div>
+    </div>
 
-    <section class="page-box">
+    <!-- Form -->
+    <section aria-labelledby="form-heading">
+      <h2 id="form-heading">Add a project</h2>
+      <p>Fill in the form below to add a project to your portfolio table.</p>
 
-      <h2>Add a new project</h2>
-
-      <p class="note">
-        All fields marked in the form are validated
-        using JavaScript before submission.
-      </p>
-
-      <form id="projectForm" novalidate>
+      <form id="project-form" novalidate aria-describedby="form-instructions">
+        <p id="form-instructions" class="note">All fields marked with <abbr title="required">*</abbr> are required.</p>
 
         <fieldset>
+          <legend>Project details</legend>
 
-          <legend>Project information</legend>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="proj-name">Project name <abbr title="required" aria-label="required">*</abbr></label>
+              <input
+                type="text"
+                id="proj-name"
+                name="proj-name"
+                required
+                minlength="2"
+                maxlength="80"
+                autocomplete="off"
+                aria-describedby="err-name"
+                aria-required="true"
+              >
+              <span class="error-msg" id="err-name" role="alert">Please enter a project name (at least 2 characters).</span>
+            </div>
 
-          <label for="projectName">
-            Project name
-          </label>
+            <div class="field-group">
+              <label for="proj-status">Status <abbr title="required" aria-label="required">*</abbr></label>
+              <select id="proj-status" name="proj-status" required aria-describedby="err-status" aria-required="true">
+                <option value="">Choose a status</option>
+                <option value="Completed">Completed</option>
+                <option value="In progress">In progress</option>
+                <option value="Draft">Draft</option>
+                <option value="Experiment">Experiment</option>
+              </select>
+              <span class="error-msg" id="err-status" role="alert">Please select a status.</span>
+            </div>
+          </div>
 
-          <input
-            type="text"
-            id="projectName"
-            name="projectName"
-            required
-            aria-describedby="projectNameError"
-          >
-
-          <p
-            class="error-message"
-            id="projectNameError"
-            aria-live="polite"
-          ></p>
-
-          <label for="description">
-            Description
-          </label>
-
-          <textarea
-            id="description"
-            name="description"
-            required
-            aria-describedby="descriptionError"
-          ></textarea>
-
-          <p
-            class="error-message"
-            id="descriptionError"
-            aria-live="polite"
-          ></p>
-
-          <label for="projectUrl">
-            Project URL
-          </label>
-
-          <input
-            type="url"
-            id="projectUrl"
-            name="projectUrl"
-            required
-            placeholder="https://example.com"
-            aria-describedby="urlError"
-          >
-
-          <p
-            class="error-message"
-            id="urlError"
-            aria-live="polite"
-          ></p>
-
-          <label for="technology">
-            Main technology
-          </label>
-
-          <select
-            id="technology"
-            name="technology"
-            required
-            aria-describedby="technologyError"
-          >
-
-            <option value="">
-              Choose one
-            </option>
-
-            <option>
-              HTML/CSS
-            </option>
-
-            <option>
-              JavaScript
-            </option>
-
-            <option>
-              C
-            </option>
-
-            <option>
-              C++
-            </option>
-
-            <option>
-              Python
-            </option>
-
-          </select>
-
-          <p
-            class="error-message"
-            id="technologyError"
-            aria-live="polite"
-          ></p>
-
-          <label for="completionDate">
-            Completion date
-          </label>
-
-          <input
-            type="date"
-            id="completionDate"
-            name="completionDate"
-            required
-            aria-describedby="dateError"
-          >
-
-          <p
-            class="error-message"
-            id="dateError"
-            aria-live="polite"
-          ></p>
-
-          <label for="imageUrl">
-            Image URL
-          </label>
-
-          <input
-            type="url"
-            id="imageUrl"
-            name="imageUrl"
-            placeholder="https://example.com/image.webp"
-            aria-describedby="imageError"
-          >
-
-          <p
-            class="error-message"
-            id="imageError"
-            aria-live="polite"
-          ></p>
-
+          <div class="field-group">
+            <label for="proj-desc">Description <abbr title="required" aria-label="required">*</abbr></label>
+            <textarea
+              id="proj-desc"
+              name="proj-desc"
+              required
+              minlength="10"
+              maxlength="300"
+              rows="3"
+              aria-describedby="err-desc desc-count"
+            ></textarea>
+            <span class="char-count" id="desc-count" aria-live="polite">0 / 300</span>
+            <span class="error-msg" id="err-desc" role="alert">Please enter a description (at least 10 characters).</span>
+          </div>
         </fieldset>
 
-        <div class="button-row">
+        <fieldset>
+          <legend>Technical details</legend>
 
-          <button type="submit">
-            Add project
-          </button>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="proj-tech">Technologies used <abbr title="required" aria-label="required">*</abbr></label>
+              <input
+                type="text"
+                id="proj-tech"
+                name="proj-tech"
+                required
+                minlength="2"
+                maxlength="120"
+                placeholder="e.g. HTML, CSS, JavaScript"
+                aria-describedby="err-tech"
+                aria-required="true"
+              >
+              <span class="error-msg" id="err-tech" role="alert">Please enter the technologies used.</span>
+            </div>
 
-          <button type="reset">
-            Reset form
-          </button>
+            <div class="field-group">
+              <label for="proj-date">Completion date <abbr title="required" aria-label="required">*</abbr></label>
+              <input
+                type="date"
+                id="proj-date"
+                name="proj-date"
+                required
+                aria-describedby="err-date"
+                aria-required="true"
+              >
+              <span class="error-msg" id="err-date" role="alert">Please select a completion date.</span>
+            </div>
+          </div>
 
+          <div class="field-group">
+            <label for="proj-url">Project URL (optional)</label>
+            <input
+              type="url"
+              id="proj-url"
+              name="proj-url"
+              placeholder="https://github.com/..."
+              aria-describedby="err-url"
+            >
+            <span class="error-msg" id="err-url" role="alert">Please enter a valid URL starting with https://.</span>
+          </div>
+
+          <div class="field-group">
+            <label for="proj-img">Thumbnail image URL (optional)</label>
+            <input
+              type="url"
+              id="proj-img"
+              name="proj-img"
+              placeholder="https://example.com/image.png"
+              aria-describedby="err-img"
+            >
+            <span class="error-msg" id="err-img" role="alert">Please enter a valid image URL starting with https://.</span>
+          </div>
+        </fieldset>
+
+        <div class="form-buttons">
+          <button type="submit">Add project</button>
+          <button type="reset" class="reset-btn">Reset form</button>
         </div>
-
       </form>
-
     </section>
 
-    <section class="page-box">
-
-      <h2>Submitted projects</h2>
-
-      <div class="table-wrapper">
-
-        <table id="projectsTable">
-
-          <caption>
-            Portfolio projects submitted using the form
-          </caption>
-
+    <!-- Table -->
+    <section aria-labelledby="table-heading">
+      <h2 id="table-heading">Projects table</h2>
+      <div class="table-wrapper" role="region" aria-label="Projects table" tabindex="0">
+        <table id="projects-table">
+          <caption>Projects submitted through the portfolio form</caption>
           <thead>
-
             <tr>
-
-              <th scope="col">
-                Name
-              </th>
-
-              <th scope="col">
-                Description
-              </th>
-
-              <th scope="col">
-                URL
-              </th>
-
-              <th scope="col">
-                Technology
-              </th>
-
-              <th scope="col">
-                Image
-              </th>
-
-              <th scope="col">
-                Date
-              </th>
-
+              <th scope="col">Image</th>
+              <th scope="col">Project name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Technologies</th>
+              <th scope="col">Status</th>
+              <th scope="col">Date</th>
+              <th scope="col">URL</th>
             </tr>
-
           </thead>
-
-          <tbody>
+          <tbody id="projects-tbody">
+            <tr class="empty-row">
+              <td colspan="7" class="empty-state">No projects added yet. Fill in the form above to add your first project.</td>
+            </tr>
           </tbody>
-
         </table>
-
       </div>
-
     </section>
-
-    <section class="page-box">
-
-      <h2>Accessibility and performance</h2>
-
-      <div class="simple-grid">
-
-        <article class="project-card featured">
-
-          <h3>Accessibility</h3>
-
-          <p>
-            This page uses semantic HTML,
-            visible focus states,
-            keyboard navigation,
-            labels,
-            fieldsets
-            and responsive tables.
-          </p>
-
-        </article>
-
-        <article class="project-card">
-
-          <h3>Performance</h3>
-
-          <p>
-            Images are lazy-loaded and
-            the page uses lightweight
-            vanilla JavaScript without frameworks.
-          </p>
-
-        </article>
-
-        <article class="project-card">
-
-          <h3>Responsive Design</h3>
-
-          <p>
-            The layout works correctly on
-            mobile phones,
-            tablets
-            and desktop devices.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
   </main>
 
   <footer>
-
-    <p>
-      &copy; 2026 Necsoiu David Carlos.
-      Project for Web Design.
-    </p>
-
+    <p>&copy; 2026 Necsoiu David Carlos. Project for Web Design.</p>
   </footer>
 
+  <script src="portfolio.js" defer></script>
 </body>
 </html>
